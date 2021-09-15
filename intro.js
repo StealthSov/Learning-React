@@ -10,7 +10,14 @@ const element = <Welcome name="Max"/>
 function WelcomeFunc(props) {
     return <div>Welcome {props.name}</div>
 }
-const elFunc = <WelcomeFunc name="Max2" />
 
-ReactDOM.render(elFunc, document.body);
+function App(){
+    return (<div>
+        <WelcomeFunc name="Test1" />
+        <WelcomeFunc name="Test2" />
+        <WelcomeFunc name="Test3" />
+    </div>);
+}
+
+ReactDOM.render(<App />, document.body);
 
