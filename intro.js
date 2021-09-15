@@ -1,23 +1,16 @@
-//Creating a component using the React.Component class
-class Welcome extends React.Component {
-    render(props) {
-        return <div>Welcome {this.props.name}!</div>
-    }
-}
-const element = <Welcome name="Max"/>
+//Creating a clock by re-rendering the entire Clock element every second. (Very slow)
 
-//Creating a component using function syntax
-function WelcomeFunc(props) {
-    return <div>Welcome {props.name}</div>
+function Clock(props) {
+    return (
+      <div>
+        <h1>Hello, world!</h1>
+        <h2>It is {props.date.toLocaleTimeString()}.</h2>
+      </div>
+    );
 }
 
-function App(){
-    return (<div>
-        <WelcomeFunc name="Test1" />
-        <WelcomeFunc name="Test2" />
-        <WelcomeFunc name="Test3" />
-    </div>);
+function tick(){
+    ReactDOM.render(<Clock date={new Date()}/>, document.body);
 }
 
-ReactDOM.render(<App />, document.body);
-
+setInterval(tick, 1000);
